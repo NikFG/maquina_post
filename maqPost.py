@@ -65,9 +65,10 @@ Próximo estado: {}'''.format(self.estado, self.func, self.char, self.prox_estad
         # caso nao encontre, verificar novamente o mesmo estado até acabar ou gerar erro
         if self.char == param[0]:
             self.prox_estado = int(param[1])
+            self.char = ""
         else:
-            self.prox_estado = int(param[1]) + 1
-        self.char = ""
+            self.prox_estado = self.estado + 1  # int(param[1]) + 1
+
 
     def __adiciona(self, param):
         self.fila.append(param)
@@ -101,13 +102,13 @@ Próximo estado: {}'''.format(self.estado, self.func, self.char, self.prox_estad
 # jmp E, S (desvia fluxo de execução caso a )
 # read (lê símbolo da ponta de saída e armazena numa variável temporária pra fazer todos os testes desses S)
 if __name__ == '__main__':
-    cadeia = "ab"
+    cadeia = "aabb"
     a = Arquivo("teste.txt")
     a.ler_arquivo()
     print(cadeia_funcoes)
     q = deque()
-    q.append("a")
-    q.append("b")
+    for c in cadeia:
+        q.append(c)
     #
     mp = MP(1, q)
     # print(cadeia_funcoes.get(1)[0])
@@ -117,6 +118,7 @@ if __name__ == '__main__':
         mp.estado = mp.prox_estado
         mp.func = cadeia_funcoes.get(mp.estado)[0]
         mp.funcao(cadeia_funcoes.get(mp.estado)[1:])
+
 
 # print(q)
 # mp.func = "read"
