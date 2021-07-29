@@ -91,12 +91,10 @@ Caractere: {}
 # read (le)
 # acc (aceita)
 # rej (rejeita)
-# 0 estado de aceitação
-# -1 estao de rejeição
 
 if __name__ == '__main__':
-    cadeia = "aaaabbbb"
-    a = Arquivo("anbnMP.txt")
+    cadeia = ""
+    a = Arquivo("teste.txt")
     a.ler_arquivo()
     print(cadeia_funcoes)
     q = deque()
