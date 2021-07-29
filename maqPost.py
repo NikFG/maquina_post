@@ -19,9 +19,6 @@ class Arquivo:
                     index = int(palavras.pop(0))
                     cadeia_funcoes[index] = palavras
 
-    def ler_arquivo_linha(self, linha: int):
-        pass
-
 
 class MP:
     estado: int
@@ -35,8 +32,7 @@ class MP:
     def __str__(self) -> str:
         return '''Estado: {}
 Função: {}
-Caractere: {}
-'''.format(self.estado, self.func, self.char)
+Caractere: {}'''.format(self.estado, self.func, self.char)
 
     def __init__(self, estado: int, fila: deque, func: str = "", char: chr = ""):
         self.estado = estado
@@ -104,19 +100,6 @@ if __name__ == '__main__':
     while not mp.final:
         mp.func = cadeia_funcoes.get(mp.estado)[0]
         mp.funcao(cadeia_funcoes.get(mp.estado)[1:])
-
-# print(q)
-# mp.func = "read"
-# mp.funcao()
-# mp.func = "jump a 2"
-# if mp.char == mp.func.split(" ")[1]:
-#     mp.prox_estado = mp.func.split(" ")[2]
-#     print(mp.prox_estado)
-#     mp.func = mp.func.split(" ")[0]
-#     mp.funcao("a")
-
-
-
 
 # escreve #
 # le
