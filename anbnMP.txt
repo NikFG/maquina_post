@@ -1,0 +1,48 @@
+;X <- X#
+1 add #
+
+;Ler X
+2 read
+
+;Caso b ou # rejeita
+3 jump b 20
+4 jump # 21
+5 jump a 6
+
+;Ler X
+6 read
+
+;caso a le de novo e add
+7 jump a 10
+
+;caso b vai pra frente
+8 jump b 16
+
+;caso # rejeita
+9 jump # 20
+
+;inicio loop a
+10 add a
+11 read
+12 jump a 10
+;fim loop
+
+;b pra frente e # rejeita
+13 jump b 16
+14 jump # 20
+
+;inicio loop b
+15 add b
+16 read
+17 jump b 15
+;fim loop b
+
+18 jump a 20
+19 jump # 22
+20 rej
+21 acc
+22 add #
+23 read
+24 jump # 21
+25 jump b 20
+26 jump a 6
