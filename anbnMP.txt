@@ -6,7 +6,7 @@
 
 ;Caso b ou # rejeita
 3 jump b 20
-4 jump # 21
+4 jump # 20
 5 jump a 6
 
 ;Ler X

@@ -90,7 +90,7 @@ Caractere: {}'''.format(self.estado, self.func, self.char)
 
 if __name__ == '__main__':
     cadeia = ""
-    a = Arquivo("teste.txt")
+    a = Arquivo("anbnMP.txt")
     a.ler_arquivo()
     print(cadeia_funcoes)
     q = deque()
