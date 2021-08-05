@@ -1,4 +1,7 @@
+# Nikollas Ferreira Gonçalves - 0040890
+
 from collections import deque
+import sys
 
 cadeia_funcoes = dict()
 
@@ -12,12 +15,17 @@ class Arquivo:
     def ler_arquivo(self):
         with open(self.arquivo) as f:
             for line in f:
-                if line.__contains__(";"):
-                    continue
                 if not line.rstrip() == "":
                     palavras = line.rstrip().split(" ")
-                    index = int(palavras.pop(0))
-                    cadeia_funcoes[index] = palavras
+                    palavras_sem_comentario = []
+                    for p in palavras:
+                        if not p.__contains__(";"):
+                            palavras_sem_comentario.append(p)
+                        else:
+                            break
+                    if palavras_sem_comentario:
+                        index = int(palavras_sem_comentario.pop(0))
+                        cadeia_funcoes[index] = palavras_sem_comentario
 
 
 class MP:
@@ -89,8 +97,13 @@ Caractere: {}'''.format(self.estado, self.func, self.char)
 # rej (rejeita)
 
 if __name__ == '__main__':
-    cadeia = ""
-    a = Arquivo("anbnMP.txt")
+    print(str(sys.argv))
+    if len(sys.argv) > 1:
+        cadeia = sys.argv[1]
+        a = Arquivo(sys.argv[2])
+    else:
+        cadeia = input("Digite a cadeia sem espaços:\n")
+        a = Arquivo(input("Digite o nome do arquivo com extensão:\n"))
     a.ler_arquivo()
     print(cadeia_funcoes)
     q = deque()
