@@ -32,7 +32,6 @@ class MP:
     estado: int
     func: str
     char: chr
-
     final: bool
     fila: deque
     accept: bool
@@ -97,7 +96,6 @@ Caractere: {}'''.format(self.estado, self.func, self.char)
 # rej (rejeita)
 
 if __name__ == '__main__':
-    print(str(sys.argv))
     if len(sys.argv) > 1:
         cadeia = sys.argv[1]
         a = Arquivo(sys.argv[2])
